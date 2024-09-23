@@ -1,0 +1,439 @@
+{
+	"info": {
+		"_postman_id": "e3c85652-397c-438a-b45f-e2eab78f650c",
+		"name": "Booking Hospital",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "38367810",
+		"_collection_link": "https://booking-hospital.postman.co/workspace/Booking-Hospital-Workspace~57a8634c-cf6d-4196-b103-ebf4788ddc93/collection/38367810-e3c85652-397c-438a-b45f-e2eab78f650c?action=share&source=collection_link&creator=38367810"
+	},
+	"item": [
+		{
+			"name": "Register Users",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Pasien444\",\n    \"email\": \"pasien@email.com\",\n    \"password\": \"securepassword123\",\n    \"role\": \"patient\",\n    \"address\": \"123 Main Street\",\n    \"phone_number\": \"+123456789\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/register",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register Doctors",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Doctor\",\n    \"email\": \"doctor123@email.com\",\n    \"password\": \"securepassword123\",\n    \"role\": \"doctor\",\n    \"address\": \"123 Main Street\",\n    \"phone_number\": \"+123456789\",\n    \"specialization\": \"Doctor Gigi\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/register",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"newuser@email.com\",\n    \"password\": \"securepassword123\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/login",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/hospitals",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcyNjQ3NDM1NSwianRpIjoiMzAzYjg3NzAtMTA0Zi00MmZkLTk0MGUtZmJhMjBjMGY5NjhkIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6eyJ1c2VyX2lkIjoxLCJyb2xlIjoicGF0aWVudCJ9LCJuYmYiOjE3MjY0NzQzNTUsImNzcmYiOiI5MzQxNjE0OS0wOTUxLTQ2OWUtYjI4YS1iY2QxM2U1MDEwNjkiLCJleHAiOjE3MjY0NzUyNTV9.rPFeycbR9WTuDC-kXjb8Q43V9kyCrB484kmP7UWKI4w",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"patient_id\": 1,\n    \"doctor_id\": 2,\n    \"appointment_date\": \"2024-09-20T10:00:00\",\n    \"appointment_time\": \"10:00:00\"\n    \"name\" : \"Putri Madagaskar\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/hospitals",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"hospitals"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/hospital/<id:integer>/doctors",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcyNjQ3NDM1NSwianRpIjoiMzAzYjg3NzAtMTA0Zi00MmZkLTk0MGUtZmJhMjBjMGY5NjhkIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6eyJ1c2VyX2lkIjoxLCJyb2xlIjoicGF0aWVudCJ9LCJuYmYiOjE3MjY0NzQzNTUsImNzcmYiOiI5MzQxNjE0OS0wOTUxLTQ2OWUtYjI4YS1iY2QxM2U1MDEwNjkiLCJleHAiOjE3MjY0NzUyNTV9.rPFeycbR9WTuDC-kXjb8Q43V9kyCrB484kmP7UWKI4w",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/hospitals/1/doctors",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"hospitals",
+						"1",
+						"doctors"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/doctors/specialization",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcyNjQ3NDM1NSwianRpIjoiMzAzYjg3NzAtMTA0Zi00MmZkLTk0MGUtZmJhMjBjMGY5NjhkIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6eyJ1c2VyX2lkIjoxLCJyb2xlIjoicGF0aWVudCJ9LCJuYmYiOjE3MjY0NzQzNTUsImNzcmYiOiI5MzQxNjE0OS0wOTUxLTQ2OWUtYjI4YS1iY2QxM2U1MDEwNjkiLCJleHAiOjE3MjY0NzUyNTV9.rPFeycbR9WTuDC-kXjb8Q43V9kyCrB484kmP7UWKI4w",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcyNjQ3NDM1NSwianRpIjoiMzAzYjg3NzAtMTA0Zi00MmZkLTk0MGUtZmJhMjBjMGY5NjhkIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6eyJ1c2VyX2lkIjoxLCJyb2xlIjoicGF0aWVudCJ9LCJuYmYiOjE3MjY0NzQzNTUsImNzcmYiOiI5MzQxNjE0OS0wOTUxLTQ2OWUtYjI4YS1iY2QxM2U1MDEwNjkiLCJleHAiOjE3MjY0NzUyNTV9.rPFeycbR9WTuDC-kXjb8Q43V9kyCrB484kmP7UWKI4w",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"patient_id\": 1,\n    \"doctor_id\": 2,\n    \"appointment_date\": \"2024-09-20T10:00:00\",\n    \"appointment_time\": \"10:00:00\"\n    \"name\" : \"Putri Madagaskar\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/doctors/search?day=senin&hospital_id=1&specialization=Cardiology&name=Doctor",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"doctors",
+						"search"
+					],
+					"query": [
+						{
+							"key": "day",
+							"value": "senin"
+						},
+						{
+							"key": "hospital_id",
+							"value": "1"
+						},
+						{
+							"key": "specialization",
+							"value": "Cardiology"
+						},
+						{
+							"key": "name",
+							"value": "Doctor"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/doctors/search?name=<input>&day=<input_day>&specializatioin=<input_specialization>&doctor_id=<input_doctorID>",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcyNjQ3NDM1NSwianRpIjoiMzAzYjg3NzAtMTA0Zi00MmZkLTk0MGUtZmJhMjBjMGY5NjhkIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6eyJ1c2VyX2lkIjoxLCJyb2xlIjoicGF0aWVudCJ9LCJuYmYiOjE3MjY0NzQzNTUsImNzcmYiOiI5MzQxNjE0OS0wOTUxLTQ2OWUtYjI4YS1iY2QxM2U1MDEwNjkiLCJleHAiOjE3MjY0NzUyNTV9.rPFeycbR9WTuDC-kXjb8Q43V9kyCrB484kmP7UWKI4w",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcyNjQ3NDM1NSwianRpIjoiMzAzYjg3NzAtMTA0Zi00MmZkLTk0MGUtZmJhMjBjMGY5NjhkIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6eyJ1c2VyX2lkIjoxLCJyb2xlIjoicGF0aWVudCJ9LCJuYmYiOjE3MjY0NzQzNTUsImNzcmYiOiI5MzQxNjE0OS0wOTUxLTQ2OWUtYjI4YS1iY2QxM2U1MDEwNjkiLCJleHAiOjE3MjY0NzUyNTV9.rPFeycbR9WTuDC-kXjb8Q43V9kyCrB484kmP7UWKI4w",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"patient_id\": 1,\n    \"doctor_id\": 2,\n    \"appointment_date\": \"2024-09-20T10:00:00\",\n    \"appointment_time\": \"10:00:00\"\n    \"name\" : \"Putri Madagaskar\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/doctors/search?day=senin&hospital_id=1&specialization=Cardiology&name=Doctor",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"doctors",
+						"search"
+					],
+					"query": [
+						{
+							"key": "day",
+							"value": "senin"
+						},
+						{
+							"key": "hospital_id",
+							"value": "1"
+						},
+						{
+							"key": "specialization",
+							"value": "Cardiology"
+						},
+						{
+							"key": "name",
+							"value": "Doctor"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/doctors/search?name=<input>&day=<input_day>&specializatioin=<input_specialization>&doctor_id=<input_doctorID> Copy",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcyNjQ3NDM1NSwianRpIjoiMzAzYjg3NzAtMTA0Zi00MmZkLTk0MGUtZmJhMjBjMGY5NjhkIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6eyJ1c2VyX2lkIjoxLCJyb2xlIjoicGF0aWVudCJ9LCJuYmYiOjE3MjY0NzQzNTUsImNzcmYiOiI5MzQxNjE0OS0wOTUxLTQ2OWUtYjI4YS1iY2QxM2U1MDEwNjkiLCJleHAiOjE3MjY0NzUyNTV9.rPFeycbR9WTuDC-kXjb8Q43V9kyCrB484kmP7UWKI4w",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcyNjQ3NDM1NSwianRpIjoiMzAzYjg3NzAtMTA0Zi00MmZkLTk0MGUtZmJhMjBjMGY5NjhkIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6eyJ1c2VyX2lkIjoxLCJyb2xlIjoicGF0aWVudCJ9LCJuYmYiOjE3MjY0NzQzNTUsImNzcmYiOiI5MzQxNjE0OS0wOTUxLTQ2OWUtYjI4YS1iY2QxM2U1MDEwNjkiLCJleHAiOjE3MjY0NzUyNTV9.rPFeycbR9WTuDC-kXjb8Q43V9kyCrB484kmP7UWKI4w",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"patient_id\": 1,\n    \"doctor_id\": 2,\n    \"appointment_date\": \"2024-09-20T10:00:00\",\n    \"appointment_time\": \"10:00:00\"\n    \"name\" : \"Putri Madagaskar\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/doctors/search?day=senin&hospital_id=1&specialization=Cardiology&name=Doctor",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"doctors",
+						"search"
+					],
+					"query": [
+						{
+							"key": "day",
+							"value": "senin"
+						},
+						{
+							"key": "hospital_id",
+							"value": "1"
+						},
+						{
+							"key": "specialization",
+							"value": "Cardiology"
+						},
+						{
+							"key": "name",
+							"value": "Doctor"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/patients/register",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcyNjQ3NDM1NSwianRpIjoiMzAzYjg3NzAtMTA0Zi00MmZkLTk0MGUtZmJhMjBjMGY5NjhkIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6eyJ1c2VyX2lkIjoxLCJyb2xlIjoicGF0aWVudCJ9LCJuYmYiOjE3MjY0NzQzNTUsImNzcmYiOiI5MzQxNjE0OS0wOTUxLTQ2OWUtYjI4YS1iY2QxM2U1MDEwNjkiLCJleHAiOjE3MjY0NzUyNTV9.rPFeycbR9WTuDC-kXjb8Q43V9kyCrB484kmP7UWKI4w",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcyNjQ3NDM1NSwianRpIjoiMzAzYjg3NzAtMTA0Zi00MmZkLTk0MGUtZmJhMjBjMGY5NjhkIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6eyJ1c2VyX2lkIjoxLCJyb2xlIjoicGF0aWVudCJ9LCJuYmYiOjE3MjY0NzQzNTUsImNzcmYiOiI5MzQxNjE0OS0wOTUxLTQ2OWUtYjI4YS1iY2QxM2U1MDEwNjkiLCJleHAiOjE3MjY0NzUyNTV9.rPFeycbR9WTuDC-kXjb8Q43V9kyCrB484kmP7UWKI4w",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"patient_id\": 1,\n    \"doctor_id\": 2,\n    \"appointment_date\": \"2024-09-20T10:00:00\",\n    \"appointment_time\": \"10:00:00\"\n    \"name\" : \"Putri Madagaskar\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/patients",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"patients"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/appointments/submit",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcyNjQ3NDM1NSwianRpIjoiMzAzYjg3NzAtMTA0Zi00MmZkLTk0MGUtZmJhMjBjMGY5NjhkIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6eyJ1c2VyX2lkIjoxLCJyb2xlIjoicGF0aWVudCJ9LCJuYmYiOjE3MjY0NzQzNTUsImNzcmYiOiI5MzQxNjE0OS0wOTUxLTQ2OWUtYjI4YS1iY2QxM2U1MDEwNjkiLCJleHAiOjE3MjY0NzUyNTV9.rPFeycbR9WTuDC-kXjb8Q43V9kyCrB484kmP7UWKI4w",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTcyNjQ3NDM1NSwianRpIjoiMzAzYjg3NzAtMTA0Zi00MmZkLTk0MGUtZmJhMjBjMGY5NjhkIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6eyJ1c2VyX2lkIjoxLCJyb2xlIjoicGF0aWVudCJ9LCJuYmYiOjE3MjY0NzQzNTUsImNzcmYiOiI5MzQxNjE0OS0wOTUxLTQ2OWUtYjI4YS1iY2QxM2U1MDEwNjkiLCJleHAiOjE3MjY0NzUyNTV9.rPFeycbR9WTuDC-kXjb8Q43V9kyCrB484kmP7UWKI4w",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"patient_id\": 1,\n    \"doctor_id\": 1,\n    \"hospital_id\": 1,\n    \"appointment_date\": \"2024-09-23\",\n    \"appointment_time\": \"10:00:00\",\n    \"name\" : \"Putri Madagaskar\",\n    \"type\" : \"Pribadi\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/appointments/submit",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"appointments",
+						"submit"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
