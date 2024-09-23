@@ -1,8 +1,5 @@
 
 ## Database Schema
-
-Below is the MySQL database schema used in this project.
-
 ### Users Table
 ```sql
 CREATE TABLE users (
